@@ -1,7 +1,5 @@
 #React 课程简介
 
-
-
 1. 参考资料：
 
     [阮一峰 React 入门](http://www.ruanyifeng.com/blog/2015/03/react)：入门知识，浅显但具有概括性
@@ -27,8 +25,4 @@
         git clone git@github.com:DengXiaChen/react-course.git
         cd react-course
         sudo npm install
-
-
-
-    
 
