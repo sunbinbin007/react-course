@@ -22,7 +22,9 @@
 
     [阮一峰 ES6 教程](http://es6.ruanyifeng.com/)：大名鼎鼎的 ES6 就是这个了
 
-2. [本课程序实例](https://github.com/DengXiaChen/react-course)
+2. [本课程程序实例](https://github.com/DengXiaChen/react-course)
+
+    运行方法如下：
 
         git clone https://github.com/DengXiaChen/react-course
 
@@ -32,3 +34,4 @@
 
         open http://localhost:3000/
 
+3. 
