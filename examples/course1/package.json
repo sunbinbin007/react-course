@@ -20,6 +20,13 @@
     "url": "https://github.com/DengXiaChen/react-course/issues"
   },
   "homepage": "https://github.com/DengXiaChen/react-course#readme",
+  "dependencies": {
+    "babel-polyfill": "^6.3.14",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.1.2",
+    "redux": "^3.1.2"
+  },
   "devDependencies": {
     "babel-core": "^6.3.15",
     "babel-loader": "^6.2.0",

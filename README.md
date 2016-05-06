@@ -10,6 +10,8 @@
 
     [SubLime3 搭建 React 开发环境](https://segmentfault.com/a/1190000003698071?_ea=332946)：不同IDE搭建方法不同，此处只介绍了 SubLime3 的搭建方法
 
+    [jsfiddle在线运行React](http://jsfiddle.net/reactjs/69z2wepo/)：非常方便的在线运行环境
+
     [Redux 中文文档](http://camsong.github.io/redux-in-chinese/index.html)：等 React 上手之后再看这个，实际项目开发中这个是重点
 
     [看漫画，学 Redux](https://github.com/jasonslyvia/a-cartoon-intro-to-redux-cn/blob/gh-pages/README.md)：学习Redux辅助
@@ -22,7 +24,11 @@
 
 2. [本课程序实例](https://github.com/DengXiaChen/react-course)
 
-        git clone git@github.com:DengXiaChen/react-course.git
-        cd react-course
-        sudo npm install
+        git clone https://github.com/DengXiaChen/react-course
+
+        cd react-course/examples/*
+        npm install
+        npm start
+
+        open http://localhost:3000/
 
