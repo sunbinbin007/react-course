@@ -131,3 +131,31 @@ JSX 是 HTML 和 JavaScript 混写的语法，当遇到 <，JSX 就当 HTML 解�
 模板引擎本质是对字符串的拼接，而 JSX 是会转译为原生 JS 的。
 
 模板引擎里存在容错，例如 input 标签可以不闭合；JSX 里标签必须闭合，并且可写成自闭合的形式。
+
+####常见语法技巧
+
+1. && 实现 if
+
+var Ifcomponent
+2. 三目运算符 ? : 实现 if else
+3. map 实现 for 循环
+4. 箭头函数 => 实现 function
+5. onChange 事件写在标签内 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

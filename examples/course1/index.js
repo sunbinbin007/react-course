@@ -36,10 +36,43 @@ var LikeButton = React.createClass({
     }
 });
 
+var IfComponent = React.createClass({
+    getInitialState: function(){
+        return {
+            show: true,
+        }
+    },
+    handleClick: function(event){
+        this.setState({
+            show: !this.state.show,
+        })
+    },
+    render: function(){
+        return (
+            <div>
+                <button onClick={this.handleClick}>显示|隐藏</button>
+                {this.state.show && <span>Hello</span>}
+            </div>
+        )
+    }
+});
+
+var MapComponent = React.createClass({
+    render: function(){
+        return(
+            <ul>
+                {this.props.items.map(item => <li key={item}>{item}</li>)}
+            </ul>
+        )
+    }
+});
+
 ReactDOM.render(
     <div>
         <Hello name={"world"} />
         <LikeButton />
+        <IfComponent />
+        <MapComponent items={[1,2,3,4]} />
     </div>,
     
     // React.createElement(Hello, {name: "world"}),
