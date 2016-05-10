@@ -13,7 +13,6 @@ var Hello = React.createClass({
     },
     render: function(){
         return <div className="test">Hello {this.props.name}</div>;
-        // return React.createElement('div', {}, 'Hello ',this.props.name);
     }
 });
 
@@ -35,6 +34,32 @@ var LikeButton = React.createClass({
         );
     }
 });
+
+var JSXComponent = React.createClass({
+    render: function(){
+        return (
+            <div>
+                <div>
+                    <viv>JSXContent</viv>
+                </div>
+            </div>
+        )
+    }
+})
+
+var JSComponent = React.createClass({
+    render: function(){
+        return (
+            React.createElement('div', null, 
+                React.createElement('div', null, 
+                    React.createElement('div', null, 
+                        'JSContent'
+                    )
+                )
+            )
+        )
+    }
+})
 
 var IfComponent = React.createClass({
     getInitialState: function(){
@@ -73,6 +98,8 @@ ReactDOM.render(
         <LikeButton />
         <IfComponent />
         <MapComponent items={[1,2,3,4]} />
+        <JSXComponent />
+        <JSComponent />
     </div>,
     
     // React.createElement(Hello, {name: "world"}),
