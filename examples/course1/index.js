@@ -3,16 +3,17 @@ import React from 'react'
 import ReactDOM,{ render } from 'react-dom'
 
 var Hello = React.createClass({
-    getDefaultProps: function() {
-        return {
-            name: 'world'
-        };
-    },
-    propTypes: {
-        name: React.PropTypes.string
+    funIf: function(){
+        if(this.props.name){
+            return this.props.name
+        }else{
+            return 'world'
+        }
     },
     render: function(){
-        return <div className="test">Hello {this.props.name}</div>;
+        return <div className="test">Hello {this.props.name || 'world'}</div>;
+        // return <div className="test">Hello {this.props.name ? this.props.name : 'world'}</div>;
+        // return <div className="test">Hello {this.funIf()}</div>;
     }
 });
 
@@ -94,7 +95,7 @@ var MapComponent = React.createClass({
 
 ReactDOM.render(
     <div>
-        <Hello name={"world"} />
+        <Hello />
         <LikeButton />
         <IfComponent />
         <MapComponent items={[1,2,3,4]} />
