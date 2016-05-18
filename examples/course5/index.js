@@ -98,15 +98,16 @@ class LikeButton3 extends React.Component {
     super(props);
     this.state = {liked: false};
   }
-  handleClick(str) {
+  handleClick(event,str) {
     this.setState({ liked: !this.state.liked });
+    console.log(event);
     console.log(str);
   }
   render() {
     const text = this.state.liked ? '喜欢' : '不喜欢';
     return (
         <div>
-            <p onClick={() => this.handleClick('test')}>
+            <p onClick={(event) => this.handleClick(event,'test')}>
                 你<strong>{text}</strong>这个，点击更改。
             </p>
         </div>
@@ -124,6 +125,7 @@ var TestInputComponents = React.createClass({
         this.setState({
             inputContent: event.target.value,
         })
+        console.log(event.target);
     },
     render: function() {
         return (
