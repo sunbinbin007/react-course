@@ -58,6 +58,6 @@
 
 4. ReactDOM.findDOMNode()
 
-    获取真实的DOM节点
+    获取真实的 DOM 节点，针对于自定义的组件标签，原生标签可用 ref 索引获取，与 ReactDOM.findDOMNode() 获取的结果完全等价。
 
 

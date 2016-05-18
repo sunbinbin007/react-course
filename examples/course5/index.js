@@ -4,7 +4,7 @@ import ReactDOM,{ render } from 'react-dom'
 
 var TestClickComponents = React.createClass({
     handleClick: function(event) {
-        var tipE = ReactDOM.findDOMNode(this.refs.tip);
+        var tipE = this.refs.tip;
         if(tipE.style.display == "none"){
             tipE.style.display = "inline";
         }else{
@@ -23,6 +23,14 @@ var TestClickComponents = React.createClass({
     },
 });
 
+var Child = React.createClass({
+    render: function(){
+        return(
+            <div>123</div>
+        )
+    }
+})
+
 var FocusComponent = React.createClass({
     getInitialState: function() {
       return {userInput: ''};
@@ -32,11 +40,13 @@ var FocusComponent = React.createClass({
     },
     clearAndFocusInput: function() {
         this.setState({userInput: ''});
-        ReactDOM.findDOMNode(this.refs.theInput).focus();
+        this.refs.theInput.focus();
+        console.log(ReactDOM.findDOMNode(this.refs.ch) === this.refs.ch);
+        console.log(ReactDOM.findDOMNode(this.refs.fa) === this.refs.fa);
     },
     render: function() {
       return (
-        <div>
+        <div ref='fa'>
           <div onClick={this.clearAndFocusInput}>
             Click to Focus and Reset
           </div>
@@ -45,6 +55,7 @@ var FocusComponent = React.createClass({
             value={this.state.userInput}
             onChange={this.handleChange}
           />
+          <Child ref='ch'></Child>
         </div>
       );
     }
@@ -76,6 +87,7 @@ class LikeButton2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {liked: false};
+    this.handleClick = this.handleClick.bind(this);
   }
   handleClick(e) {
     this.setState({ liked: !this.state.liked });
@@ -85,7 +97,7 @@ class LikeButton2 extends React.Component {
     const text = this.state.liked ? '喜欢' : '不喜欢';
     return (
         <div>
-            <p onClick={this.handleClick.bind(this)}>
+            <p onClick={this.handleClick}>
                 你<strong>{text}</strong>这个，点击更改。
             </p>
         </div>
