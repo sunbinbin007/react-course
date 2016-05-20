@@ -14,7 +14,9 @@ class InputComponent1 extends React.Component {
             value: e.target.value
         });
         console.log(e.target.value);
-        console.log(e.target.getAttribute('value'));
+    }
+    componentDidUpdate(){
+        console.log(this.state.value);
     }
     render(){
         return(
@@ -51,7 +53,9 @@ class ChildrenComponent extends React.Component {
   }
 }
 
-
+/**
+ * 具备搜索功能的产品列表
+ **/
 
 var ProductCategoryRow = React.createClass({
   render: function() {
@@ -184,6 +188,7 @@ ReactDOM.render(
         <InputComponent2></InputComponent2>
         <br/><br/><br/>
         <ChildrenComponent><div>456</div></ChildrenComponent>
+        <br/><br/><br/>
         <FilterableProductTable products={PRODUCTS} />
     </div>,
     document.getElementById('root')
