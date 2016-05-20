@@ -13,8 +13,8 @@ class InputComponent1 extends React.Component {
         this.setState({
             value: e.target.value
         });
-        console.log(this.state.value);
-        window.setTimeout(()=>console.log(this.state.value),100);
+        console.log(e.target.value);
+        console.log(e.target.getAttribute('value'));
     }
     render(){
         return(
@@ -27,13 +27,11 @@ class InputComponent1 extends React.Component {
 
 class InputComponent2 extends React.Component {
     constructor(props){
-        super(props);
-        this.state = {
-            value: 'test1',
-        };
+      super(props);
     }
     changeHandle(e){
-        console.log(e.target.value);
+      console.log(e.target.value);
+      console.log(e.target.getAttribute('value'));
     }
     render(){
         return(
@@ -43,6 +41,17 @@ class InputComponent2 extends React.Component {
         )
     }
 }
+
+class ChildrenComponent extends React.Component {
+  constructor(props) {
+      super(props);
+  }
+  render() {
+      return <div>{this.props.children}</div>;
+  }
+}
+
+
 
 var ProductCategoryRow = React.createClass({
   render: function() {
@@ -159,7 +168,6 @@ var FilterableProductTable = React.createClass({
   }
 });
 
-
 var PRODUCTS = [
   {category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
   {category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball'},
@@ -175,6 +183,7 @@ ReactDOM.render(
         <br/><br/><br/>
         <InputComponent2></InputComponent2>
         <br/><br/><br/>
+        <ChildrenComponent><div>456</div></ChildrenComponent>
         <FilterableProductTable products={PRODUCTS} />
     </div>,
     document.getElementById('root')
