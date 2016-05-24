@@ -125,7 +125,7 @@ class Counter extends Component {
 //state 提取
 function mapStateToProps(state) {
   return {
-        counter: state.counter
+    counter: state.counter
   };
 }
 
@@ -204,7 +204,7 @@ export const SUPPLIER_SHOP_UPDATE = "SUPPLIER_SHOP_UPDATE";
 
 #### 不直接通过 store.dispatch 来派发 action
 虽然你可以轻松地在创建 store 的时候将其引用保存起来，然后直接通过 store.dispatch 来派发 action，但是千万别那么做。
-redux 在设计的时候引入了**middleware**和**compose**，直接调用 store.dispatch 的话，就跳过了以上两个步骤，会导致表现方式不一致。
+redux 在设计的时候引入了 **middleware** 和 **compose**，直接调用 store.dispatch 的话，就跳过了以上两个步骤，会导致表现方式不一致。
 
 #### 启用 ES7 decorators
 
