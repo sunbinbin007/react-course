@@ -51,7 +51,7 @@ Vue 在很多细节方面设计得确实很人性化，比如 slot、组件间�
 
 #### store
 
-store 是**唯一**一个存放了应用中所有的组件状态的数据的地方，但是 store **≠** 状态数据对象。它包含一下方法：
+store 是**唯一**一个存放了应用中所有组件状态数据的地方，但是 store **≠** 状态数据对象。它包含以下方法：
 
  - getState()，一个用于返回状态数据对象的方法。
  - subscribe()，一个用于侦听数据变化的方法。
@@ -64,12 +64,12 @@ action 是一个描述发生了什么的对象，它作为数据从页面（view
 ```
     //用来描述删除一个 ID 为 15 的 action
     let deleteAction = {
-        type: 'DELETE',//必须字段，常量，且唯一
-        id: 15 //非必须字段
+        type: 'DELETE',  //必须字段，常量，且唯一
+        id: 15  //非必须字段
     };
 ```
 
-如上例，deleteAction 用来描述一类删除操作，这对象中的 type 是不变的，而 id 是变化的，所以我们一般通过一个函数（actionCreator）来生成这个 action 对象。例如：
+如上例，deleteAction 用来描述一类删除操作，该对象中的 type 是不变的，而 id 是变化的，所以我们一般通过一个函数（actionCreator）来生成这个 action 对象，例如：
 
 ```
     //根据传入的 id 生成 action
@@ -188,14 +188,14 @@ export default createStore(rootReducer, null, null);
  1. view 通过调用一个函数（actionCreator）产生一个 action
  2. 通过 store.dispatch 将 action 传递给 reducer
  3. reducer 在已有 state 数据和 action 的基础上生成一份新的 state
- 4. 新的 state 传递给 store 保管，并触发了 view的更新
+ 4. 新的 state 传递给 store 保管，并触发了 view 的更新
 
 
 ### 最佳实践
 
 #### action 的 type 属性应该定义为常量，且唯一
 
-type 作为判断 action 要执行的内容的唯一标志属性，通常定义为常量，推荐以「业务」+「动作」的命名方式。
+type 作为判断 action 要执行内容的唯一标志属性，通常定义为常量，推荐「业务」+「动作」的命名方式。
 
 ```
 export const SUPPLIER_SHOP_SELECT = "SUPPLIER_SHOP_SELECT";
@@ -224,10 +224,10 @@ export default class Counter extends Component {
 
 #### Ajax/Fetch 应该全都放在 actionCreator 中
 
-所有数据接口请求的发起应该都放在 actionCreator 中，一来可以明确 actionCreator 层的职能（与后端的dao层类似），二来能避免组件层堆积太多非显示逻辑的代码。其实这也是 react 为显示负责，redux 为数据负责的核心思想。
+所有数据接口请求的发起应该都放在 actionCreator 中，一来可以明确 actionCreator 层的职能（与后端的 dao 层类似），二来能避免组件层堆积太多非显示逻辑的代码。其实这也是 react 为显示负责，redux 为数据负责的核心思想。
 
 #### 所有影响组件渲染的数据尽量都放在 store 中
-在派乐趣商家PC端的项目中，我犯了一个根本性的错误，把 Notify 组件(操作提示组件)的引用保存在一个工具类中，当需要显示信息时直接通过工具类提供的方法去修改 Notify 内部的 state 信息，进而改变 Notify 的显示和信息。就像是这样子：
+在派乐趣商家 PC 端的项目中，我犯了一个根本性的错误，把 Notify 组件(操作提示组件)的引用保存在一个工具类中，当需要显示信息时直接通过工具类提供的方法去修改 Notify 内部的 state 信息，进而改变 Notify 的显示和信息。就像是这样子：
 
 ```
 NotifyUtils.error("操作失败！",'该商品不可删除！');
@@ -242,7 +242,7 @@ NotifyUtils.error("操作失败！",'该商品不可删除！');
 ### 总结
 
 - 单一数据源。
-- store 中的数据是只读的。要想修改数据，必须派发一个 action。
+- store 中的数据是只读的，要想修改数据，必须派发一个 action。
 - reducer 要么返回原数据，要么生成一个新对象。
 
 
